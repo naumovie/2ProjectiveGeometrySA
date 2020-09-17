@@ -1,9 +1,11 @@
+# coding=windows-1251
 import SaMatrix
 import SA
 import matplotlib.pyplot as plt
 import time
 
-def printSolution(pos):   # ?????? ???????
+def printSolution(pos):
+    # печатает решение в виде матрицы
     for i in pos:
         for j in range(pos.__len__()):
             if j + 1 in i:
@@ -12,7 +14,7 @@ def printSolution(pos):   # ?????? ???????
                 print("*", end="")
         print()
 
-# ?????? ???????
+# правильное решение для плоскости с q = 2
 # Matrix = SaMatrix.Matrix(2)
 #
 # SaRun = SA.SA(Matrix)
@@ -25,7 +27,7 @@ def printSolution(pos):   # ?????? ???????
 # print(MatrixWithSolution.FirstAxiom())
 # print(MatrixWithSolution.ThirdAxiom())
 
-# ?????? ??????? ??? ??????? ? q=3
+# правильное решение для плоскости с q=3
 # MatrixWithSolution = SaMatrix.Matrix(3)
 # MatrixWithSolution.SetPos([[1,2,4,10],[2,3,5,11],[3,4,6,12],[4,5,7,13],
 #                            [1,5,6,8],[2,6,7,9],[3,7,8,10],[4,8,9,11],
@@ -35,7 +37,7 @@ def printSolution(pos):   # ?????? ???????
 # print(MatrixWithSolution.FirstAxiom())
 # print(MatrixWithSolution.ThirdAxiom())
 
-#???????? ??????? ??? ??????? ? q=3
+# неправильное решение для плоскости с  q=3
 # MatrixWithSolution = SaMatrix.Matrix(3)
 # MatrixWithSolution.SetPos([[10, 3, 1, 12], [2, 11, 8, 4], [3, 7, 5, 10],
 #                            [5, 2, 4, 12], [7, 11, 6, 4], [13, 1, 9, 11],
@@ -50,7 +52,7 @@ def printSolution(pos):   # ?????? ???????
 
 
 Curs = list()
-Q = 3 # ?????? ???????????
+Q = 3 # размерность плоскости
 try_count = 0
 last_iter_count = 0
 while True:
@@ -62,7 +64,7 @@ while True:
     iter_count = 0
     for n in range(100000):
         iter_count += 1
-        if SaRun.T < 0.000001: break  #??????????? ?? ???????????
+        if SaRun.T < 0.000001: break  #ограничение на нижнюю границу тепмпературы
         #print(n)
         cur = SaRun.Run()
         #print("current: ", Matrix.Pos)
@@ -77,7 +79,7 @@ while True:
             break
 
     print(try_count, last_iter_count)
-    #??????? ????? ??????? ???????, ? ?????????? ????????
+    #вывод номера попытки и количества итераций в ней
     #if try_count == 5: break
     #print("one million!")
     if cur == 0: break
